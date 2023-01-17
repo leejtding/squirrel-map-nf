@@ -4,11 +4,6 @@
 
 bst 270 course exercise
 
-## Test data
-
-We downloaded the squirrel census data from `https://www.thesquirrelcensus.com/data`
-on Jan 17th, 2023. 
-
 ## Configuration
 
 - param1: this is the parameter description (default: "hello")
