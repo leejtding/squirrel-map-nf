@@ -33,7 +33,7 @@ process preprocessTable {
         path 'table0.csv'
 
     """
-        Rscript '${baseDir}/bin/preprocessss.r' ${data} table0.csv
+        Rscript '${baseDir}/bin/preprocess.r' ${data} table0.csv
     """
 
 }
