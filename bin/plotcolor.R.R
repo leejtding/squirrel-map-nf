@@ -41,9 +41,6 @@ OUTPUT_FILENAME = args[2]
 squirrels_preproc <- read.csv(INPUT_FILENAME) %>% 
        filter(!is.na(Primary.Fur.Color) & Primary.Fur.Color!="")
 
-# line above is for for testing only 
-  # DELETE BEFORE PUSHING  
-
 min_long <- min(squirrels_preproc$Squirrel.Longitude...DD.DDDDDD., na.rm=T); max_long <- max(squirrels_preproc$Squirrel.Longitude...DD.DDDDDD., na.rm=T)
 min_lat <- min(squirrels_preproc$Squirrel.Latitude..DD.DDDDDD., na.rm=T); max_lat <- max(squirrels_preproc$Squirrel.Latitude..DD.DDDDDD., na.rm=T)
 
