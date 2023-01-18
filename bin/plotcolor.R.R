@@ -41,11 +41,6 @@ OUTPUT_FILENAME = args[2]
 squirrels_preproc <- read.csv(INPUT_FILENAME) %>% 
        filter(!is.na(Primary.Fur.Color) & Primary.Fur.Color!="")
 
-squirrels_preproc <- read.csv("C:/Users/jdomi/OneDrive/Documents/GradSchool/PhD/Year1/January/ReproDS/squirrel-map-nf/testdata/squirrel-data.csv") %>% 
-  filter(Squirrel.Longitude...DD.DDDDDD.<0 
-         & !is.na(Squirrel.Latitude..DD.DDDDDD.) & !is.na(Squirrel.Longitude...DD.DDDDDD.)
-         & !is.na(Primary.Fur.Color) & Primary.Fur.Color!="")
-  
 # line above is for for testing only 
   # DELETE BEFORE PUSHING  
 
