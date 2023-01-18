@@ -13,7 +13,16 @@ OUTPUT_FILENAME = args[2]
 dat <- read_csv(INPUT_FILENAME)
 
 # variable names...
-
+dat <- 
+  dat |> 
+  group_by(most_common_color) |> 
+  summarize(
+    count = n()
+  ) |> 
+  ungroup() |> 
+  rename(
+    color = most_common_color
+  )
 
 # make plot
 myplot <-
