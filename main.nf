@@ -2,7 +2,7 @@
 nextflow.enable.dsl=2
 
 // import from modules
-include { plotGGPlot } from './modules/rsteps.nf'
+//include { plotGGPlot } from './modules/rsteps.nf'
 
 
 process PrintHelloOnFile {
@@ -24,7 +24,7 @@ process PrintHelloOnFile {
 
 process preprocessTable {
 
-    publishDir "${params.resultsDir}", pattern: "results.txt", mode: 'copy'
+    publishDir "${params.resultsDir}/tables/", pattern: "table0.csv", mode: 'copy'
 
     input:
         path data
@@ -40,7 +40,7 @@ process preprocessTable {
 
 process analysisData {
 
-    publishDir "${params.resultsDir}", pattern: "results.txt", mode: 'copy'
+    publishDir "${params.resultsDir}/tables/", pattern: "table1.csv", mode: 'copy'
 
     input:
         path table0
@@ -57,16 +57,17 @@ process analysisData {
 
 process plotCounts {
 
-    publishDir "${params.resultsDir}", pattern: "results.txt", mode: 'copy'
+    publishDir "${params.resultsDir}/figures/", pattern: "fur_color_${parkCode}.*", mode: 'copy'
 
     input:
-        path table1
+        tuple path(table), val(parkName), val(parkCode)
 
     output:
-        path 'fig1.png'
+        tuple path("fur_color_${parkCode}.png"),path("fur_color_${parkCode}.log")
 
+    script:
     """
-        Rscript '${baseDir}/bin/plotcounts.r' ${table1} fig1.png
+        Rscript '${baseDir}/bin/plotcounts.r' ${table}  'fur_color_${parkCode}.png' "${parkName}" >> fur_color_${parkCode}.log
     """
 
 }
@@ -74,16 +75,16 @@ process plotCounts {
 
 process plotColor {
 
-    publishDir "${params.resultsDir}", pattern: "results.txt", mode: 'copy'
+    publishDir "${params.resultsDir}/figures/", pattern: "fur_color_map.png", mode: 'copy'
 
     input:
-        path table1
+        path table
 
     output:
-        path 'fig2.png'
+        path 'fur_color_map.png'
 
     """
-        Rscript '${baseDir}/bin/plotcolor.r' ${table1} fig2.png
+        Rscript '${baseDir}/bin/plotcolor.r' ${table} fur_color_map.png
     """
 
 }
@@ -91,12 +92,14 @@ process plotColor {
 
 workflow {
     
-    inFile = channel.from("${params.rInputFile}")
-    
+    inFile = channel.from("${baseDir}/${params.rInputFile}").view()
+
     table0 = preprocessTable(inFile)
-    table1 = analysisData(preprocessOut)
-    fig1 = plotCounts(table1)
-    fig2 = plotColor(table1)
+    table1 = analysisData(table0)
+
+    parkName= channel.from(params.parkName).map{$it -> tuple($it, $it.replaceAll("\\s",""))}.view()
+    plotCounts(table0.combine(parkName))
+    plotColor(table0)
 
     
 }

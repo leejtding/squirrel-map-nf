@@ -10,16 +10,12 @@
 
 # Package Installation ####
 
-list.of.packages <- c("dplyr", "ggplot2", "ggmap", "readr")
+# list.of.packages <- c("dplyr", "ggplot2", "ggmap", "readr")
 
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+# new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 
-if(length(new.packages)>0) install.packages(new.packages)
+# if(length(new.packages)>0) install.packages(new.packages)
 
-library(dplyr)
-library(ggplot2)
-library(ggmap)
-library(readr)
 
 # Description
   # Try to pinpoint where the squirrel's were on the map 
@@ -28,6 +24,12 @@ library(readr)
 # Data Import ##### 
 
 #!/usr/bin/env Rscript
+
+library(dplyr)
+library(ggplot2)
+library(ggmap)
+library(readr)
+
 args = commandArgs(trailingOnly=TRUE)
 
 # parsing input parameters for convenience
@@ -54,7 +56,7 @@ nyc_base <- ggmap::get_stamenmap(bbox = coords
                                  ) 
 
 # currently plotting individual squirrels 
-ggmap(nyc_base) + 
+myplot <- ggmap(nyc_base) + 
   geom_point(data=squirrels_preproc, aes(x=Squirrel.Longitude...DD.DDDDDD.
                                          , y =Squirrel.Latitude..DD.DDDDDD.
                                          , color = Primary.Fur.Color)
