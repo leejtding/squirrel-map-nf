@@ -1,6 +1,0 @@
-task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
-1	23/1e22a9	98563	preprocessTable (1)	COMPLETED	0	2023-01-18 23:22:55.391	8.2s	5.8s	95.2%	119.5 MB	1.4 GB	10 MB	81.5 KB
-3	3a/595b51	98599	plotCounts (1)	COMPLETED	0	2023-01-18 23:23:04.036	18.3s	16.4s	93.2%	251.4 MB	1.9 GB	20.7 MB	53.3 KB
-2	69/1dece8	98617	plotColor (1)	COMPLETED	0	2023-01-18 23:23:04.131	26.7s	24.8s	87.3%	306.8 MB	1.7 GB	18.1 MB	1.7 MB
-4	89/1429dc	98669	analysisData (1)	COMPLETED	0	2023-01-18 23:23:22.335	15.2s	13.8s	94.3%	189.4 MB	2 GB	20.3 MB	28.5 KB
-5	ab/477386	98708	plotCounts (2)	COMPLETED	0	2023-01-18 23:23:30.838	16.7s	15s	93.2%	268.8 MB	1.9 GB	20.7 MB	50.8 KB
