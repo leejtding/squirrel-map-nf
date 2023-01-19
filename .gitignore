@@ -1,5 +1,6 @@
 work/
 results/
+log/*
 *.pyc
 .vscode
 .nextflow*

@@ -1,6 +1,0 @@
-task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
-1	11/282eb3	529	preprocessTable (1)	COMPLETED	0	2023-01-19 08:45:05.487	855ms	1s	-	-	-	-	-
-3	9b/42845c	568	analysisData (1)	COMPLETED	0	2023-01-19 08:45:06.745	1.7s	2s	-	-	-	-	-
-2	ca/460330	602	plotColor (1)	COMPLETED	0	2023-01-19 08:45:06.843	3.1s	3s	-	-	-	-	-
-5	53/29c0bd	692	plotCounts (1)	COMPLETED	0	2023-01-19 08:45:08.577	1.8s	2s	-	-	-	-	-
-4	3a/f6c218	764	plotCounts (2)	COMPLETED	0	2023-01-19 08:45:10.087	1.8s	1s	-	-	-	-	-
