@@ -21,7 +21,7 @@ LABEL org.opencontainers.image.documentation="https://github.com/violafanfani/sq
 LABEL org.opencontainers.image.source="https://github.com/violafanfani/squirrel-map-nf"
 LABEL org.opencontainers.image.vendor="violafanfani"
 LABEL org.opencontainers.image.authors="Viola Fanfani"
-LABEL org.opencontainers.image.revision="v0.0.1"
+LABEL org.opencontainers.image.revision="v0.0.2"
 
 
 ## install R spatial packages && cleanup 
