@@ -33,7 +33,7 @@ process preprocessTable {
         path 'table0.csv'
 
     """
-        Rscript '${baseDir}/bin/preprocessing.r' ${data} table0.csv
+        Rscript '${workflow.launchDir}/bin/preprocessing.r' ${data} table0.csv
     """
 
 }
